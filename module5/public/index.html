@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    
+</head>
+
+<body>
+    <h1>Filtered Games:</h1>
+
+    <link rel="stylesheet" type="text/css" href="/public/style.css">
+
+    <div class="search-container">
+        <input type="text" id="searchInputPublisher" placeholder="Publisher">
+        <input type="text" id="searchInputGenre" placeholder="Genre">
+        <input type="text" id="searchInputTitle" placeholder="Title">
+        <button id="searchButton">Search</button>
+    </div>
+
+    <div id="filteredGamesContainer"></div>
+
+    <script>
+        fetch('/api/games')
+            .then(response => response.json())
+            .then(games => {
+                const filteredGamesContainer = document.getElementById('filteredGamesContainer');
+                const gameElements = games.map(game => createGameElement(game));
+                filteredGamesContainer.append(...gameElements);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        const searchButton = document.getElementById('searchButton');
+        const searchInputPublisher = document.getElementById('searchInputPublisher');
+        const searchInputGenre = document.getElementById('searchInputGenre');
+        const searchInputTitle = document.getElementById('searchInputTitle');
+        const filteredGamesContainer = document.getElementById('filteredGamesContainer');
+
+        searchButton.addEventListener('click', () => {
+            const publisher = searchInputPublisher.value.trim();
+            const genre = searchInputGenre.value.trim();
+            const title = searchInputTitle.value.trim();
+
+            const url = `/api/games?publisher=${publisher}&genre=${genre}&title=${title}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    filteredGamesContainer.innerHTML = '';
+                    const gameElements = data.map(game => createGameElement(game));
+                    filteredGamesContainer.append(...gameElements);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+
+        function createGameElement(game) {
+            const gameElement = document.createElement('div');
+
+            const thumbnailImage = document.createElement('img');
+            thumbnailImage.src = game.thumbnail;
+            thumbnailImage.alt = game.title + ' Thumbnail';
+            gameElement.appendChild(thumbnailImage);
+
+            const titleParagraph = document.createElement('p');
+            titleParagraph.textContent = 'Title: ' + game.title;
+            gameElement.appendChild(titleParagraph);
+
+            const publisherParagraph = document.createElement('p');
+            publisherParagraph.textContent = 'Publisher: ' + game.publisher;
+            gameElement.appendChild(publisherParagraph);
+
+            const genreParagraph = document.createElement('p');
+            genreParagraph.textContent = 'Genre: ' + game.genre;
+            gameElement.appendChild(genreParagraph);
+
+            const gameUrlAnchor = document.createElement('a');
+            gameUrlAnchor.href = game.game_url;
+            gameUrlAnchor.target = '_blank';
+            gameUrlAnchor.textContent = 'Play Game';
+            gameElement.appendChild(gameUrlAnchor);
+
+            return gameElement;
+        }
+
+    </script>
+</body>
+
+</html>

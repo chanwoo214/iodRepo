@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Free Web tutorials" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="John Doe" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1</title>
+
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML Learning Journey</h1>
+
+    <article class="tags">
+      <h2>Tags - div, span, p, pre, ul, li, ol, article</h2>
+      <div>strawberries</div>
+      <div>apple</div>
+      <div>melon</div>
+
+      <span>small</span>
+      <span>medium</span>
+      <span>large</span>
+
+      <p>p represents paragraph</p>
+
+      <pre>
+      Texts in a pre element
+      is displayed in a fixed-width
+      font, and it preserves
+      both spaces and 
+      line breaks
+    </pre
+      >
+
+      <ul>
+        <li>apple</li>
+        <li>mango</li>
+        <li>pineapple</li>
+        <li>grape</li>
+        <li>melon</li>
+        <li>orange</li>
+      </ul>
+
+      <ol>
+        <li>V</li>
+        <li>Orange Juice</li>
+        <li>Milk</li>
+        <li>Coke</li>
+        <li>Sprite</li>
+        <li>L&P</li>
+      </ol>
+    </article>
+
+    <article class="table">
+      <h2>Tables - table, thead, tbody, tr, td, th</h2>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">First header</th>
+            <th>Second header</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">First cell - first row</td>
+            <td>Second cell - first row</td>
+            <td>Third cell - first row</td>
+          </tr>
+          <tr>
+            <td>Second cell - second row</td>
+            <td>Third cell - second row</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>First cell - second row</td>
+            <td>Second cell - third row</td>
+            <td>Third cell -third row</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article>
+      <h2>Elements - img, video, audio</h2>
+      <div>
+        <img src="https://picsum.photos/200/300" alt="" />
+      </div>
+      <div>
+        <video autoplay width="250">
+          <source src="/media/cc0-videos/flower.webm" type="video/webm" />
+          <source src="/media/cc0-videos/flower.mp4" type="video/mp4" />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
+      <div>
+        <audio autoplay src="/media/cc0-audio/t-rex-roar.mp3">
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
+      </div>
+    </article>
+
+    <header>
+      <nav>
+        <!-- works like <a href="/index.html">Home</a> -->
+        <a href="/">Home</a>
+        <a href="/form">Form</a>
+        <a href="./form">Form</a>
+      </nav>
+    </header>
+    <main></main>
+    <footer>Copyright 2021 &copy;</footer>
+  </body>
+</html>

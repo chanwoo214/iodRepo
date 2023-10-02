@@ -1,0 +1,148 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "My User Project CRUD",
+        "description": "My User Project Application API",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Games",
+            "description": "Perform operation on Games"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/api/games": {
+            "get": {
+                "tags": [
+                    "Get Games"
+                ],
+                "summary": "This endpoint returns a list of all games in the game-store.",
+                "parameters": [
+                    {
+                        "name": "publisher",
+                        "in": "query",
+                        "description": "This endpoint retrieves games by a specific publisher."
+                    },
+                    {
+                        "name": "genre",
+                        "in": "query",
+                        "description": "This endpoint retrieves games of a specific genre."
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "This endpoint retrieves games matching the title(s) using the keyword search."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": " This endpoint returns a list of all games in the game-store."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Add Games"
+                ],
+                "summary": "This endpoint adds games in the list of game-store.",
+                "parameters": [
+                    {
+                        "name": "publisher",
+                        "in": "query",
+                        "description": "This endpoint adds games by a specific publisher."
+                    },
+                    {
+                        "name": "genre",
+                        "in": "query",
+                        "description": "This endpoint adds games of a specific genre."
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "This endpoint adds games of the title."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": " This endpoint adds a list of games in the game-store."
+                    }
+                }
+            }
+        },
+        "/api/games/{id}": {
+            "get": {
+                "tags": [
+                    "Get Games"
+                ],
+                "summary": "This endpoint retrieves a specific game by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "This endpoint retrieves games by a game ID."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": " This endpoint returns a game by its ID."
+                    }
+                }
+            },
+
+            "put": {
+                "tags": [
+                    "Updates Games"
+                ],
+                "summary": " This endpoint should update the details of a specific games.",
+                "parameters": [
+                    {
+                        "name": "gameID",
+                        "in": "path",
+                        "description": "This endpoint updates games by a game ID."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": " This endpoint updates a game by its ID."
+                    }
+                }
+            },
+
+            "delete": {
+                "tags": [
+                    "Deletes Games"
+                ],
+                "summary": "This endpoint should delete a specific game.",
+                "parameters": [
+                    {
+                        "name": "gameID",
+                        "in": "path",
+                        "description": "This endpoint deletes games by a game ID."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": " This endpoint deletes a game by its ID."
+                    }
+                }
+            }
+        }
+        
+    }
+}

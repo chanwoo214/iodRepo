@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+
+        
+      @media screen and (max-width: 390.98px) {
+        .main-container {
+          display: block;
+        }
+      }
+     
+      @media screen and (min-width: 600px) {
+        .main-container {
+          display: block;
+        }
+      }
+
+      @media screen and (min-width: 700px) {
+        .main-container {
+          display: flex;
+          flex-direction: wrap;
+        }
+      }
+
+      .main-container {
+        border: 5px black solid;
+      }
+
+      .profile {
+        display: block;
+        padding: 50px;
+        font-family: "EB Garamond", serif;
+        background-color: rgb(252, 124, 124);
+        font-weight: bolder;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .detail {
+        display: block;
+        padding:50px;
+        font-family: "EB Garamond", serif;
+       font-weight: bolder;
+       border: 3px grey solid;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+      }
+
+      .detail h2 {
+        text-decoration: underline red;
+        padding: 10px;
+        text-align: center;
+      }
+      h1 {
+        justify-content: center;
+        text-align: center;
+      }
+      h2 {
+        margin-bottom: 0;
+      }
+      h3 {
+        margin-bottom: 0.5px;
+      }
+      a:hover {
+        color: rgb(34, 190, 60);
+        background-color: grey;
+      }
+
+      .img {
+        display: block;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="profile">
+        <h1>Chan Woo Shim</h1>
+        <img
+          class="img"
+          src="assets/images/linkedin-no-picture-avatar.png"
+          alt="images"
+        /><br />
+
+        <div>Mobile: +64 21 252 9136</div>
+        <div>Email: chanwooshim@gmail.com</div>
+        <div>Address: Blockhouse Bay, Auckland</div>
+        <a href="github.com/chanwoo214">Github: github.com/chanwoo214</a>
+
+        <div class="skils">
+          <h2>Language</h2>
+          <ul>
+            <li>English</li>
+            <li>Korean</li>
+          </ul>
+
+          <h2>Soft Skills</h2>
+          <ul>
+            <li>Communication</li>
+            <li>Adaptability</li>
+            <li>Time Management</li>
+            <li>Work Ethic</li>
+            <li>Analytical Thinking</li>
+            <li>Teamwork</li>
+          </ul>
+
+          <h2>Technical Skills</h2>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Javascript</li>
+            <li>Microsoft Office</li>
+            <li>Soldering</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="detail">
+        <h2>Education/Certificate</h2>
+        <p>
+          2023 <br />
+          Institute of Data <br />
+          - Software Engineering
+        </p>
+
+        <p>
+          2012 - 2015 <br />
+          University of Waikato <br />
+          - Bachelor of Engineering
+        </p>
+
+        <h2>Work Experience</h2>
+
+        <h3>
+          2021 - Present<br />
+          EROAD Limited - Service Centre Engineer
+        </h3>
+        <p>
+          Role: Investigate and develop global service centre function through
+          leading the returned refurbishment process and ensuring unit
+          throughput and that all functional KPIs are met. Gained knowledge and
+          skills to work with cross functional teams to improve production and
+          refurbishment processes.
+        </p>
+        <br />
+        <h3>
+          2019 - 2021 <br />
+          ADS Limited - Security Technician
+        </h3>
+        <p>
+          Role: Install, program, maintain or repair security alarm wiring and
+          equipment. Visit commercial and residential sites to provide clients
+          with security alarm and video surveillance solutions. Developed
+          multiple soft skills and technical skills, and the ability to
+          understand and be flexible according to clients’ problems and provide
+          trainings of the system.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

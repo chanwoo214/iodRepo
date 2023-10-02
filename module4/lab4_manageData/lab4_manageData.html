@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #e3f2fd;
+                
+            }
+
+           
+        </style>
+        <script>
+            let news = [
+                { id: 1, title: 'News1', content: "bla" },
+                { id: 2, title: 'News2', content: "ble" },
+                { id: 3, title: 'News3', content: "blu" }
+            ];
+            function addNewsArticleToPage(article) {
+                var template = document.getElementById("news-template").content.cloneNode(true);
+                template.querySelector('.news-id').innerText = article.id;
+                template.querySelector('.news-title').innerText = article.title;
+                template.querySelector('.news-content').innerText = article.content;
+                document.querySelector('#news-list').appendChild(template);
+            }
+
+            function showNews(news) {
+
+                news.forEach(article => {
+                    addNewsArticleToPage(article);
+                })
+            };
+
+
+            function refreshNews() {
+                var newsList = document.querySelector('#news-list');
+                newsList.innerHTML = '';
+
+                showNews(news);
+                console.log("Refreshed", Math.random());
+            };
+
+            window.onload = () => {
+                showNews(news);
+                setInterval(refreshNews, 5000);
+            };
+
+            function addArticleToArray() {
+                var articleTitle = document.querySelector("#article-title").value
+                var articleContent = document.querySelector("#article-content").value
+                var newArticle = { id: news.length + 1, title: articleTitle, content: articleContent };
+                news.push(newArticle);
+
+                document.querySelector("#article-title").value = '';
+                document.querySelector("#article-content").value = '';
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <div class="row">
+            <div>
+                Title
+                <input id="article-title" type="text">
+
+            </div>
+            <div>
+                Content
+                <input id="article-content" type="text">
+
+            </div>
+            <div>
+                <button onclick="addArticleToArray()">Save</button>
+
+            </div>
+        </div>
+        <template id="news-template">
+            <div class="news">
+                <div class="news-body">
+                    <div class="news-id"></div>
+                    <div class="news-title"></div>
+                    <div class="news-content"> </div>
+                </div>
+            </div>
+        </template>
+
+        <div id="news-list"></div>
+    </body>
+
+</html>

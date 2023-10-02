@@ -1,0 +1,14 @@
+.search-container {
+    display: flex;
+    justify-content: center; 
+    padding: 20px;
+  }
+
+  
+  #filteredGamesContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    max-width: 800px; 
+    margin: auto; 
+  }
